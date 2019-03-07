@@ -1,7 +1,9 @@
 package com.lenddo.mobile.data;
 
 
+import android.app.Activity;
 import android.text.TextUtils;
+import android.view.View;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.GuardedRunnable;
@@ -551,5 +553,14 @@ public class RNClientOptions extends ReactContextBaseJavaModule {
     @ReactMethod
     public java.lang.String toString() {
         return "RNClientOptions";
+    }
+
+    @ReactMethod(isBlockingSynchronousMethod=true)
+    public int resource(String key) throws Exception {
+        Activity activity = this.getCurrentActivity();
+        if (activity != null) {
+            return activity.getResources().getIdentifier(key, null, null);
+        }
+        return View.NO_ID;
     }
 }
