@@ -1,6 +1,6 @@
 {
   "name": "@lenddo/react-native-sdk",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
