@@ -1,34 +1,50 @@
 Table of Contents
 =================
 <!-- TOC -->
-- [0.1. Lenddo React-Native Demo App](#01-lenddo-react-native-demo-app)
-- [0.2. Pre-requisites](#02-pre-requisites)
-- [0.3. To run Sample App](#03-to-run-sample-app)
+
+- [Table of Contents](#table-of-contents)
+  - [0.1. Lenddo React-Native Demo App](#01-lenddo-react-native-demo-app)
+  - [0.2. Pre-requisites](#02-pre-requisites)
+  - [0.3. To run Sample App](#03-to-run-sample-app)
     - [0.3.1. Installing nodejs dependecies for Sample App](#031-installing-nodejs-dependecies-for-sample-app)
-- [0.4. Data SDK implementation instruction](#04-data-sdk-implementation-instruction)
-    - [0.4.1. Adding Lenddo react-native-sdk into your react-native dependencies](#041-adding-lenddo-react-native-sdk-into-your-react-native-dependencies)
-    - [0.4.2. Gradle setup](#042-gradle-setup)
-    - [0.4.3. Required Permissions](#043-required-permissions)
-    - [0.4.4. Required gradle declaration](#044-required-gradle-declaration)
-    - [0.4.5. Initializing React-Native Lenddo Data SDK](#045-initializing-react-native-lenddo-data-sdk)
-    - [0.4.6. Register native module in Application class in your android project](#046-register-native-module-in-application-class-in-your-android-project)
-    - [0.4.7. Setting Partner Script Id](#047-setting-partner-script-id)
-    - [0.4.8. Registering data gathering callback](#048-registering-data-gathering-callback)
-        - [0.4.8.1. Capturing callback via EventEmitter](#0481-capturing-callback-via-eventemitter)
-- [0.5. Onboarding SDK implementation instruction](#05-onboarding-sdk-implementation-instruction)
-    - [0.5.1. Adding Lenddo react-native-sdk into your react-native dependencies](#051-adding-lenddo-react-native-sdk-into-your-react-native-dependencies)
-    - [0.5.2. Gradle setup](#052-gradle-setup)
-    - [0.5.3. Required Permissions](#053-required-permissions)
-    - [0.5.4. Required gradle declaration](#054-required-gradle-declaration)
-    - [0.5.5. Initializing React-Native Lenddo Onboarding SDK](#055-initializing-react-native-lenddo-onboarding-sdk)
-    - [0.5.6. Register native module in Application class in your android project](#056-register-native-module-in-application-class-in-your-android-project)
-    - [0.5.7. Setting Partner Script Id](#057-setting-partner-script-id)
-    - [0.5.8. Registering onboarding callback](#058-registering-onboarding-callback)
-    - [0.5.9. Additional yet optional onboarding setup](#059-additional-yet-optional-onboarding-setup)
-        - [0.5.9.1. Setup endpoint and back popup dialog](#0591-setup-endpoint-and-back-popup-dialog)
-        - [0.5.9.2. Adding native email signin and facebook login(optional)](#0592-adding-native-email-signin-and-facebook-loginoptional)
-            - [0.5.9.2.1. Include GoogleSignInHelper and FacebookSignInHelper into your wrapper package](#05921-include-googlesigninhelper-and-facebooksigninhelper-into-your-wrapper-package)
-            - [0.5.9.2.2. Enabling using Gmail SignIn and Facebook Login in App.js](#05922-enabling-using-gmail-signin-and-facebook-login-in-appjs)
+  - [0.4. Data SDK implementation instruction](#04-data-sdk-implementation-instruction)
+    - [0.4.1. Android](#041-android)
+      - [0.4.1.1. Adding Lenddo react-native-sdk into your react-native dependencies](#0411-adding-lenddo-react-native-sdk-into-your-react-native-dependencies)
+      - [0.4.1.2. Gradle setup](#0412-gradle-setup)
+      - [0.4.1.3. Required Permissions](#0413-required-permissions)
+      - [0.4.1.4. Required gradle declaration](#0414-required-gradle-declaration)
+      - [0.4.1.5. Initializing React-Native Lenddo Data SDK](#0415-initializing-react-native-lenddo-data-sdk)
+      - [0.4.1.6. Register native module in Application class in your android project](#0416-register-native-module-in-application-class-in-your-android-project)
+      - [0.4.1.7. Setting Partner Script Id](#0417-setting-partner-script-id)
+      - [0.4.1.8. Registering data gathering callback](#0418-registering-data-gathering-callback)
+        - [0.4.1.8.1. Capturing callback via EventEmitter](#04181-capturing-callback-via-eventemitter)
+  - [0.5. Onboarding SDK implementation instruction](#05-onboarding-sdk-implementation-instruction)
+    - [0.5.1. Android](#051-android)
+      - [0.5.1.1. Adding Lenddo react-native-sdk into your react-native dependencies](#0511-adding-lenddo-react-native-sdk-into-your-react-native-dependencies)
+      - [0.5.1.2. Gradle setup](#0512-gradle-setup)
+      - [0.5.1.3. Required Permissions](#0513-required-permissions)
+      - [0.5.1.4. Required gradle declaration](#0514-required-gradle-declaration)
+      - [0.5.1.5. Initializing React-Native Lenddo Onboarding SDK](#0515-initializing-react-native-lenddo-onboarding-sdk)
+      - [0.5.1.6. Register native module in Application class in your android project](#0516-register-native-module-in-application-class-in-your-android-project)
+      - [0.5.1.7. Launching Lenddo Onboarding](#0517-launching-lenddo-onboarding)
+      - [0.5.1.8. Setting Partner Script Id and other form data fields](#0518-setting-partner-script-id-and-other-form-data-fields)
+      - [0.5.1.9. Registering onboarding callback](#0519-registering-onboarding-callback)
+      - [0.5.1.10. Additional yet optional onboarding setup](#05110-additional-yet-optional-onboarding-setup)
+        - [0.5.1.10.1. Setup endpoint and back popup dialog](#051101-setup-endpoint-and-back-popup-dialog)
+        - [0.5.1.10.2. Adding native email signin and facebook login(optional)](#051102-adding-native-email-signin-and-facebook-loginoptional)
+          - [0.5.1.10.2.1. Include GoogleSignInHelper and FacebookSignInHelper into your wrapper package](#0511021-include-googlesigninhelper-and-facebooksigninhelper-into-your-wrapper-package)
+          - [0.5.1.10.2.2. Enabling using Gmail SignIn and Facebook Login in App.js](#0511022-enabling-using-gmail-signin-and-facebook-login-in-appjs)
+    - [0.5.2. iOS](#052-ios)
+      - [0.5.2.1. Adding Lenddo react-native-sdk into your react-native dependencies](#0521-adding-lenddo-react-native-sdk-into-your-react-native-dependencies)
+      - [0.5.2.2. Adding Lenddo react-native-sdk through manual installation](#0522-adding-lenddo-react-native-sdk-through-manual-installation)
+      - [0.5.2.3. Common issue on installing Lenddo react-native-sdk](#0523-common-issue-on-installing-lenddo-react-native-sdk)
+      - [0.5.2.4. Invoking Lenddo Onboarding](#0524-invoking-lenddo-onboarding)
+      - [0.5.2.5. Variables Definition](#0525-variables-definition)
+      - [0.5.2.6. Registering onboarding callback](#0526-registering-onboarding-callback)
+      - [0.5.2.7. Applying localization](#0527-applying-localization)
+      - [0.5.2.5. Adding Native Google SignIn](#0525-adding-native-google-signin)
+      - [0.5.2.6. Issue you might encounter for implementing GoogleSignIn when using CocoaPods](#0526-issue-you-might-encounter-for-implementing-googlesignin-when-using-cocoapods)
+
 <!-- /TOC -->
 
 ## 0.1. Lenddo React-Native Demo App
@@ -52,10 +68,14 @@ There may be also other partner specific values that you are required to set.
 ```bash
 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
 ```
-*  Make sure an emulator is running or a device is connected
-
+  Make sure an emulator is running or a device is connected
+* For Android
 ```bash
 react-native run-android
+```
+* For iOS
+```bash
+react-native run-ios
 ```
 
 ### 0.3.1. Installing nodejs dependecies for Sample App
@@ -70,13 +90,14 @@ npm install react-native-gesture-handler --save
 
 ## 0.4. Data SDK implementation instruction
 
-### 0.4.1. Adding Lenddo react-native-sdk into your react-native dependencies
+### 0.4.1. Android
+#### 0.4.1.1. Adding Lenddo react-native-sdk into your react-native dependencies
 
 ```bash
 npm install @lenddo/react-native-sdk --save
 ```
 
-### 0.4.2. Gradle setup
+#### 0.4.1.2. Gradle setup
 
 * In `android/setting.gradle`
 
@@ -97,7 +118,7 @@ dependencies {
 }
 ```
 
-### 0.4.3. Required Permissions
+#### 0.4.1.3. Required Permissions
 React-Native Data Sdk will use information stored on the users' android phone. It is advisable for all permissions to be added to your app to enable LenddoData to extract the necessary information for verification and scoring. The optimal permissions are already defined for you in the Libraries’ AndroidManifest.xml and are automatically added to your app using gradle when you rebuild the app after adding our SDK.
 
 Below is the list of required permissions.
@@ -122,7 +143,7 @@ If you do not want the all default permissions added, you manually have to remov
 ```
 It is also important that these permissions are consistent with the privacy policy of your app.
 
-### 0.4.4. Required gradle declaration
+#### 0.4.1.4. Required gradle declaration
 In your app-level build.gradle file, it is a good practice to set/ use targetSdkVersion, compileSdkVersion and buildToolsVersion of api 26:
 ```gradle
 apply plugin: 'com.android.application'
@@ -164,7 +185,7 @@ buildscript {
 }
 ```
 
-### 0.4.5. Initializing React-Native Lenddo Data SDK
+#### 0.4.1.5. Initializing React-Native Lenddo Data SDK
 In your Application class initialize Lenddo core info as shown below (Lenddo React-Native Demo app).
 
 ```java
@@ -197,7 +218,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 ```
 
-### 0.4.6. Register native module in Application class in your android project
+#### 0.4.1.6. Register native module in Application class in your android project
 
 ```java
 package lenddo.com.lenddoconnect;
@@ -252,14 +273,14 @@ public class MainApplication extends Application implements ReactApplication {
 }
 
 ```
-### 0.4.7. Setting Partner Script Id
+#### 0.4.1.7. Setting Partner Script Id
 On your App.js, setup Partner Script Id dynamically via RNDataSdkWrapper's ```setPartnerScriptId``` method. **And make sure to setup your Partner Script Id before calling RNDataSdkWrapper's** ```startAndroidData``` **method.**
 
 ```javascript
     RNDataSdkWrapper.setPartnerScriptId(this.state.scoring.partnerScriptId);
 ```
 
-### 0.4.8. Registering data gathering callback
+#### 0.4.1.8. Registering data gathering callback
 On your App.js, setup Lenddo sdk with callback to capture response from gathering of data and sending data into our api. You should call RNDataSdkWrapper's ```setupWithCallback``` before ```startAndroidData```. As shown in Lenddo React-Native Demo app.
 
 ```javascript
@@ -293,7 +314,7 @@ Other setup method available are ```setupWithClientOptions``` and the default ``
 
 Note whenever you desire to use ```setupWithClientOptions``` and ```setupWithCallback``` at the same time, make sure you call ```setupWithClientOptions``` first. And also to make sure to call setup methods just once.
 
-#### 0.4.8.1. Capturing callback via EventEmitter
+##### 0.4.1.8.1. Capturing callback via EventEmitter
 You can also use EventEmitter for capturing datasdk callbacks, by just using React-Native Callback class it only captures: **success**, **error** and **failed** state, it does not include **start** state. Refer to the source code below.
 
 ```javascript
@@ -326,13 +347,15 @@ You can also use EventEmitter for capturing datasdk callbacks, by just using Rea
 
 ## 0.5. Onboarding SDK implementation instruction
 
-### 0.5.1. Adding Lenddo react-native-sdk into your react-native dependencies
+### 0.5.1. Android
+
+#### 0.5.1.1. Adding Lenddo react-native-sdk into your react-native dependencies
 
 ```bash
 npm install @lenddo/react-native-sdk --save
 ```
 
-### 0.5.2. Gradle setup
+#### 0.5.1.2. Gradle setup
 
 * In `android/setting.gradle`
 
@@ -353,7 +376,7 @@ dependencies {
 }
 ```
 
-### 0.5.3. Required Permissions
+#### 0.5.1.3. Required Permissions
 React-Native Onboarding Sdk will require internet access and an **optional** camera access that is required for only psychometics and assisted enable.
 
 ```xml
@@ -361,7 +384,7 @@ React-Native Onboarding Sdk will require internet access and an **optional** cam
     <uses-permission android:name="android.permission.CAMERA" />
 ```
 
-### 0.5.4. Required gradle declaration
+#### 0.5.1.4. Required gradle declaration
 In your app-level build.gradle file, it is a good practice to set/ use targetSdkVersion, compileSdkVersion and buildToolsVersion of api 26:
 ```gradle
 apply plugin: 'com.android.application'
@@ -384,7 +407,7 @@ android {
 }
 ```
 
-### 0.5.5. Initializing React-Native Lenddo Onboarding SDK
+#### 0.5.1.5. Initializing React-Native Lenddo Onboarding SDK
 In your Application class initialize Lenddo core info as shown below (Lenddo React-Native Demo app).
 
 ```java
@@ -421,7 +444,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 ```
 
-### 0.5.6. Register native module in Application class in your android project
+#### 0.5.1.6. Register native module in Application class in your android project
 
 ```java
 package lenddo.com.lenddoconnect;
@@ -480,14 +503,49 @@ public class MainApplication extends Application implements ReactApplication {
 }
 
 ```
-### 0.5.7. Setting Partner Script Id
+#### 0.5.1.7. Launching Lenddo Onboarding
+On your App.js, call RNOnboardingSdkWrapper's ```startAuthorize``` method. *But before calling the said method make sure you have setup necessary fields as state on the succeeding instructions.*
+
+```javascript
+    RNOnboardingSdkWrapper.startAuthorize();
+```
+
+#### 0.5.1.8. Setting Partner Script Id and other form data fields
 On your App.js, setup Partner Script Id dynamically via RNOnboardingSdkWrapper's ```setPartnerScriptId``` method. **And make sure to setup your Partner Script Id before calling RNOnboardingSdkWrapper's** ```startAuthorize``` **method.**
 
 ```javascript
+
+import {Platform} from 'react-native';
+import { RNOnboardingSdkWrapper, RNFormDataCollector} from '@lenddo/react-native-sdk';
+
+    /* Probe Data
+    setApplicationId
+    setFirstName
+    setLastName
+    setMiddleName
+    setHomePhone
+    setMobilePhone
+    setEmail
+    setWorkEmail
+    setDateOfBirth - dd/MM
+    setStartEmploymentDate
+    setEndEmploymentDate
+    setUniversityName
+    putField <- Key-Value pair member for partner data
+    addGovernmentId
+    setGovernmentIds
+    setAddress
+    */
+    RNFormDataCollector.refreshFormDataCollector()
+    RNFormDataCollector.setApplicationId(this.state.formData.applicationId)
+    RNFormDataCollector.setFirstName(this.state.formData.firstName)
+    RNFormDataCollector.setMiddleName(this.state.formData.middleName)
+    RNFormDataCollector.setLastName(this.state.formData.lastName)
+
     RNOnboardingSdkWrapper.setPartnerScriptId(this.state.formData.partnerScriptId);
 ```
 
-### 0.5.8. Registering onboarding callback
+#### 0.5.1.9. Registering onboarding callback
 On your App.js, setup Lenddo onboarding sdk with callback to capture response from your startAuthorize call, by using RTCDeviceEventEmitter to capture onboarding progress and listen to WebView's backpress.  As shown in Lenddo React-Native Demo app.
 
 ```javascript
@@ -568,10 +626,10 @@ onPressStartOnboarding() {
     RNOnboardingSdkWrapper.startAuthorize()
 }
 ```
-### 0.5.9. Additional yet optional onboarding setup
+#### 0.5.1.10. Additional yet optional onboarding setup
 On your App.js, setup Lenddo onboarding sdk with additional options to be use.
 
-#### 0.5.9.1. Setup endpoint and back popup dialog
+##### 0.5.1.10.1. Setup endpoint and back popup dialog
 You can customize endpoint and back popup dialog via sample code snippet below
 
 ```javascript
@@ -581,10 +639,10 @@ You can customize endpoint and back popup dialog via sample code snippet below
     RNOnboardingSdkWrapper.customizeBackPopup('Title', 'Message', 'OK', 'Cancel')
 ```
 
-#### 0.5.9.2. Adding native email signin and facebook login(optional)
+##### 0.5.1.10.2. Adding native email signin and facebook login(optional)
 If your work flow includes email signin and facebook login, you can use native application for this feature.
 
-##### 0.5.9.2.1. Include GoogleSignInHelper and FacebookSignInHelper into your wrapper package
+###### 0.5.1.10.2.1. Include GoogleSignInHelper and FacebookSignInHelper into your wrapper package
 ```java
 public class MainApplication extends Application implements ReactApplication {
 
@@ -618,7 +676,7 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
-##### 0.5.9.2.2. Enabling using Gmail SignIn and Facebook Login in App.js
+###### 0.5.1.10.2.2. Enabling using Gmail SignIn and Facebook Login in App.js
 After adding the signin helper class, enable the use of this via code snippet below
 
 ```javascript
@@ -627,3 +685,273 @@ After adding the signin helper class, enable the use of this via code snippet be
     RNOnboardingSdkWrapper.setEnableNativeGoogle(true)
  
 ```
+
+### 0.5.2. iOS
+
+#### 0.5.2.1. Adding Lenddo react-native-sdk into your react-native dependencies
+
+```bash
+npm install @lenddo/react-native-sdk --save
+```
+
+```bash
+react-native link @lenddo/react-native-sdk
+```
+#### 0.5.2.2. Adding Lenddo react-native-sdk through manual installation
+
+1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+2. Go to `node_modules` ➜ `@lenddo/react-native-sdk/ios` and add `RNLenddoEFLLibrary.xcodeproj`
+3. In XCode, in the project navigator, select your project. Add `libRNLenddoEFLLibrary.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+4. Run your project (`Cmd+R`)<
+
+#### 0.5.2.3. Common issue on installing Lenddo react-native-sdk
+You might encounter auto-linking of ‘LenddoEFLSdk.framework’ file, as shown in the picture below
+
+![LenddoEFLSdk framework auto-linking failed](https://github.com/Lenddo/react-native-sdk/wiki/LenddoEFLSdk.framework_auto-linking_failed.png)
+
+To manual link of `@lenddo/react-native-sdk`’s `LenddoEFLSdk.framework` into your project
+1. In Xcode, select the project, then select the main target (under `Targets`), then go to the `Build Settings` tab, and find the `Framework Search Paths` section. Add `../node_modules/\@lenddo/react-native-sdk/ios/Frameworks` (non-recursive) for each of your configurations (e.g. Debug and Release). Note: *a \ (backslash) is required before @*
+2. Find the LenddoEFLSdk.framework file in `../node_modules/@lenddo/react-native-sdk/ios/Frameworks` and drag it into Xcode under the `Frameworks` section. In the dialog that pops up, **uncheck** `Copy items if needed`, **choose** `Create groups`, and ensure your main target is checked under `Add to targets`.
+3. In Xcode, select the project, then select the main target (under `Targets`), then go to the "General" tab and find the `Embedded Binaries` section. Click the `+` icon and select LenddoEFLSdk.framework which appears under `Frameworks` then click `Add`.
+4. In Xcode do `Product` -> `Clean`.
+
+#### 0.5.2.4. Invoking Lenddo Onboarding
+On your App.js, call RNOnboardingSdkWrapperIOS's ```showAuthorizeWithFormData``` to launch Lenddo Onboarding
+
+```javascript
+import {Platform} from 'react-native';
+import {RNOnboardingSdkWrapperIOS} from '@lenddo/react-native-sdk';
+ 
+// Call showAuthorizeWithFormData method to run LenddoEFL onboarding
+if (Platform.OS === 'ios') {
+	RNOnboardingSdkWrapperIOS.showAuthorizeWithFormData(this.state.formData, (error, events) => {
+		if (error) {
+			console.error(error);
+		} else {
+		    // Setup is successful
+			console.log(JSON.stringify(events));
+		}
+	})
+}
+```
+```formData``` is an model object that contain key-value variable to setup and initialize onboarding. You must copy-paste the object and add values on your app. You may delete some variables that you might not need and set it to there default values. There are few variables that are required and will be discussed further below.
+
+```javascript
+this.state = {
+      formData: {
+        partnerScriptId: 'YOUR_PARTNER_SCRIPT_ID',
+        secret: '',
+ 
+        applicationId: 'YOUR_APPLICATION_ID',
+        firstName: '',
+        middleName: '',
+        lastName: '',
+ 
+        email: '',
+        workEmail: '',
+        birthday: '',
+ 
+        mobilePhone: '',
+        homePhone: '',
+ 
+        employerName: '',
+        employmentStartDate: '',
+        employmentEndDate: '',
+ 
+        motherFirstName: '',
+        motherLastName: '',
+        motherMiddleName: '',
+ 
+        addressLine1: '',
+        addressLine2: '',
+        city: '',
+        administrativeDivision: '',
+        countryCode: '',
+        postalCode: '',
+ 
+        workAddressLine1: '',
+        workAddressLine2: '',
+        workCity: '',
+        workAdministrativeDivision: '',
+        workCountryCode: '',
+        workPostalCode: '',
+ 
+        themeColor: ''
+      },
+    }
+``` 
+#### 0.5.2.5. Variables Definition
+
+```
+partnerScriptId
+secret
+```
+ - Are LenddoEFL partner identifiers and are tagged **required**, please refer to your LenddoEFL representative if you don't have it yet.
+
+```
+applicationId
+```
+- An identifier for your LenddoEFL Onboarding session and is tagged **required**. This variable must be unique for each onboarding session you completed.
+
+```
+themeColor
+```
+ - Will be base color for the navigation bar of LenddoEFL Onboarding screen (Default theme would be black). Sample is shown below:
+
+```javascript
+class ThemeColor  {
+  constructor(red, green, blue, alpha) {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    this.alpha = alpha;
+  }
+}
+
+formData.theme = new ThemeColor(0x00, 0xff, 0x00, 1);
+```
+
+#### 0.5.2.6. Registering onboarding callback
+On your App.js, setup LenddoEFL onboarding callback to capture response from your ```showAuthorizeWithFormData``` call, by using RCTNativeEventEmitter to capture onboarding progress. As shown in LenddoEFL React-Native Demo app.
+
+```javascript
+import {Platform, NativeEventEmitter} from 'react-native';
+import {RNOnboardingSdkWrapperIOS} from '@lenddo/react-native-sdk';
+ 
+const OnboardingEventEmitter = Platform.OS == 'ios' ? new NativeEventEmitter(RNOnboardingSdkWrapperIOS) : DeviceEventEmitter;
+ 
+export default class RNLenddoEFLSDKDemo extends PureComponent {    
+    
+    // Other method description
+    
+    
+    componentWillMount() {
+        OnboardingEventEmitter.addListener('onAuthorizeStarted',(params) => {
+            // Do any source code before lenddo onboarding start.
+            console.log("onAuthorizeStarted")
+            console.log(params)
+            }
+        )
+        OnboardingEventEmitter.addListener('onAuthorizeComplete',(params) => {
+                console.log("onAuthorizeComplete")
+                console.log(params)
+            }
+        )
+        OnboardingEventEmitter.addListener('onAuthorizeCancelled',(params) => {
+                console.log("onAuthorizeCancelled")
+                console.log(params)
+            }
+        )
+        OnboardingEventEmitter.addListener('onAuthorizeError',(params) => {
+                console.log("onAuthorizeError")
+                console.log(params)
+            }
+        )
+        if (Platform.OS == 'android') {
+            OnboardingEventEmitter.addListener('onAuthorizeFailure',(params) => {
+                    console.log("onAuthorizeFailure")
+                    console.log(params)
+               }
+            )
+        }
+    )
+}
+```
+ 
+#### 0.5.2.7. Applying localization
+The SDK Wrapper requires ```Use Base Internationalization``` enable where some text within the onboarding session screen, like ```back``` text and strings for the cancel dialog should be declared.
+```Localizable.strings``` file is where you add translation data as key-value pairs.
+Earlier versions of XCode used to generate a Localizable.strings file by default, and we were able to easily duplicate the Localizable.strings file for other languages. 
+Recent versions of XCode doesn’t create Localizable.strings file by default. 
+To add ```Localizable.strings``` file, go to File->New->File , choose Strings File under Resource tab of iOS, name it Localizable.strings , and create the file and create it under ```Base.lproj``` folder.
+
+![Creating Localizable.strings](https://github.com/Lenddo/react-native-sdk/wiki/Creating_Localizable.strings_file.png)
+
+![Saving Localizable.strings](https://github.com/Lenddo/react-native-sdk/wiki/Saving_Localizable.strings_file.png)
+
+Now, you have a Localizable.strings file for Base language as below. and then you must add the key-value pair below the image.
+
+![Saving Localizable.strings](https://github.com/Lenddo/react-native-sdk/wiki/Localizable.strings_file.png)
+
+```strings 
+"back" = "Back";
+ 
+// Cancel Dialog
+"cancel_dialog_title" = "Cancel Process";
+"cancel_dialog_message" = "Are you sure you want to cancel?";
+"cancel_dialog_ok_button_text" = "Yes";
+"cancel_dialog_cancel_button_text" = "No";
+```
+
+#### 0.5.2.5. Adding Native Google SignIn
+
+If you are required to have an email onboarding step, you should add a native google sign-in workflow, and [you can follow this instructions from LenddoEFL native iOS Onboarding and for more information](https://github.com/Lenddo/ios-lenddo-onboarding#8-google-sign-in-sdk-integration).
+On the said procedure you will be asked to create ```GoogleProvider``` class **(You may copy the GoogleProvider.m and GoogleProvider.h file from the [React-Native Sample App source code](https://github.com/Lenddo/react-native-sdk-sample-app/tree/feature/add_ios_onboarding_library/ios))** and after having the class you need to send it unto RNOnboardingSdkIOS via your ```ApplicationDelegate```'s ```application: didFinishLaunchingWithOptions:``` method.
+    
+```objective-c
+
+#import "RNOnboardingSdkWrapperIOS.h"
+#import "GoogleProvider.h"
+
+@implementation AppDelegate
+ 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  // Other member declartion
+  
+  // Create GoogleProvider object and add into a NSArray
+  GoogleProvider *googleProvider = [[GoogleProvider alloc] init];
+  NSArray *providers = [NSArray arrayWithObjects: googleProvider, nil];
+
+  // Add GoogleProvider object into wrapper
+  [RNOnboardingSdkWrapperIOS setProviders:providers];
+  
+  return YES;
+}
+
+```
+
+#### 0.5.2.6. Issue you might encounter for implementing GoogleSignIn when using CocoaPods 
+
+Commonly used way of importing GoogleSignIn Library is through CocoaPods. Adding it up only on Podfile sometimes might not just do the work. As shown in the sample Podfile below, GoogleSignIn is properly imported
+
+```
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'RNLenddoEFLSdkWrapperDemo' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for RNLenddoEFLSdkWrapperDemo
+  pod 'GoogleSignIn'
+
+  target 'RNLenddoEFLSdkWrapperDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'RNLenddoEFLSdkWrapperDemo-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for RNLenddoEFLSdkWrapperDemo-tvOS
+
+  target 'RNLenddoEFLSdkWrapperDemo-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+```
+
+But you might encounter error below.
+
+![framework not found GoogleSignIn](https://user-images.githubusercontent.com/25608370/37246165-6451dd0a-24a4-11e8-8a05-503022a70b8a.png)
+
+To fix the problem,
+1. Find the GoogleSignIn.framework file in “../ios/Pods/GoogleSignIn/Frameworks” and drag it into Xcode under the "Frameworks" section. In the dialog that pops up, uncheck "Copy items if needed", choose "Create groups", and ensure your main target is checked under "Add to targets".
+2. Unlike LenddoEFLSdk.Framework, it is not require to add the the framework on "General" > “Embedded Binaries" section. Thus, it should add the `$(PROJECT_DIR)/Pods/GoogleSignIn/Frameworks` automatically in `Framework Search Paths`
+3. In Xcode do "Product" -> "Clean".

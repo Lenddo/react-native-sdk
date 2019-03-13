@@ -1,5 +1,5 @@
 
-# IOS LenddoEFL Onboarding Sdk Wrapper (@lenddo/react-native-sdK)
+# IOS LenddoEFL Onboarding Sdk Wrapper (@lenddo/react-native-sdk)
 
 ## Getting started
 
