@@ -13,11 +13,16 @@
 
 @property NSString *code;
 @property NSString *partner_script_id;
+@property NSString *privacy_policy_url;
+@property NSString *terms_and_conditions_url;
+@property NSString *contact_us;
+@property Boolean enableDataCollection;
 @property NSString *partner_name;
 @property NSString *language;
 @property NSString *logo;
 @property NSArray *verification_form;
-@property LEApplicationCodeTheme *theme;
+@property NSArray *document_groups;
+@property NSDictionary *theme;
 
 -(id) initWithValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues;
 -(void) setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues;

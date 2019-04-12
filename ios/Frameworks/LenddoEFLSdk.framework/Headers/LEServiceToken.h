@@ -14,6 +14,12 @@
 @property long expirationTime;
 @property long timestamp;
 
+-(id) initWithToken: (NSString *) aToken
+            expirationTime: (long) aExpirationTime
+            timestamp: (long) aTimestamp;
+
+-(bool) isTokenExpired;
+
 -(id) initWithValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues;
 -(void) setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues;
 

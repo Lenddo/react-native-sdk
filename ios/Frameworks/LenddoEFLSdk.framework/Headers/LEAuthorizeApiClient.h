@@ -16,6 +16,7 @@
 #import "LELivenessInstruction.h"
 #import "LEUploadTokenData.h"
 #import "LEApplicationCodeDetails.h"
+#import "LEApplicationIdValidator.h"
 
 @interface LEAuthorizeApiClient : NSObject
 
@@ -26,20 +27,25 @@
 
 -(id) initWithSessionManager: (id) sessionManager;
 
--(id) initWithAttributes: (NSString *) aPartnerScriptId
+-(id) initWithGateway: (NSString *) aGateway;
+
+-(id) initWithPartnerScriptId: (NSString *) aPartnerScriptId
                        secret: (NSString *) aSecret
                       gateway: (NSString *) aGateway;
 
--(id) initWithAttributes: (NSString *) aPartnerScriptId
+-(id) initWithPartnerScriptId: (NSString *) aPartnerScriptId
                   secret: (NSString *) aSecret
                  gateway: (NSString *) aGateway
                   region: (NSString *) aRegion;
 
--(id) initWithAttributes: (NSString *) aPartnerScriptId
+-(id) initWithPartnerScriptId: (NSString *) aPartnerScriptId
                   secret: (NSString *) aSecret
                  gateway: (NSString *) aGateway
                   region: (NSString *) aRegion
              psy_gateway: (NSString *) aPsyGateway;
+
+-(void)getHealthCheckWithSuccess:(void(^)(BOOL))aSuccess
+                                 andFailure:(void(^)(NSError*))aFailure;
 
 -(void)getOnboardingServiceTokenWithSuccess:(void(^)(LEServiceToken*))aSuccess
                                  andFailure:(void(^)(NSError*))aFailure;
@@ -81,4 +87,9 @@
                                   withToken:(NSString *) aToken
                                 withSuccess:(void(^)(LEApplicationCodeDetails*)) aSuccess
                                  andFailure:(void(^)(NSError*))aFailure;
+
+-(void) postValidateApplicationIdWithValidator:(LEApplicationIdValidator *) aValidator
+                             withApiToken:(NSString *) aToken
+                              withSuccess:(void(^)(NSDictionary*)) aSuccess
+                               andFailure:(void(^)(NSError*)) aFailure;
 @end

@@ -21,9 +21,11 @@
 
 +(LEWebViewController*) openAuthorize:(UIViewController *)controller withProviders:(NSArray *) providers withData:(LEOnboardingData *)formData withDelegate:(id <LEAuthorizeEventDelegate>)delegate;
 
+/*
 +(void) requestAccessForDataCollection;
 +(void) setupDataCollection:(LECollectionSetup *)setup;
 +(void) startDataCollection:(NSString *)applicationId  withDelegate:(id <LECollectionEventDelegate>)delegate;
+*/
 
 +(NSString *) getInstallationId;
 @end
