@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LEServiceToken.h"
 
 @protocol LEAuthorizeEventDelegate <NSObject>
 
--(void)onAuthorizeComplete;
--(void)onAuthorizeStarted;
+-(void)onAuthorizeComplete:(NSString*)applicationId;
+-(void)onAuthorizeStarted:(LEServiceToken *) serviceToken;
 -(void)onAuthorizeError:(NSError*)error;
--(void)onAuthorizeCancelled;
+-(void)onAuthorizeCancelled:(NSString*)applicationId;
 
 @end

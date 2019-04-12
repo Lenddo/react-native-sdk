@@ -11,8 +11,8 @@
 @interface LEUploadTokenData : NSObject
 
 @property NSString *documentTypeId;
-@property NSString *meta;
-@property bool isFront;
+@property NSDictionary *meta;
+@property int partIndex;
 
 -(NSDictionary*) toDictionary;
 

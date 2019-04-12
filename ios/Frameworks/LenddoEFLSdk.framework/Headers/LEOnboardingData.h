@@ -41,11 +41,21 @@
 @property long latitude;
 @property long longitude;
 
+@property NSString *workAddressLine1;
+@property NSString *workAddressLine2;
+@property NSString *workCity;
+@property NSString *workAdministrativeDivision;
+@property NSString *workCountryCode;
+@property NSString *workPostalCode;
+@property long workLatitude;
+@property long workLongitude;
+
 @property NSString *partnerScriptId;
 @property NSString *secret;
 @property NSString *authorizeApiGateway;
 @property NSString *region;
 @property NSString *clientId;
+@property NSString *applicationCode;
 @property NSString *installationId;
 @property NSString *facebookToken;
 @property NSInteger expiration;

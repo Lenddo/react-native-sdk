@@ -715,6 +715,9 @@ To manual link of `@lenddo/react-native-sdk`’s `LenddoEFLSdk.framework` into y
 3. In Xcode, select the project, then select the main target (under `Targets`), then go to the "General" tab and find the `Embedded Binaries` section. Click the `+` icon and select LenddoEFLSdk.framework which appears under `Frameworks` then click `Add`.
 4. In Xcode do `Product` -> `Clean`.
 
+
+***Note: Make sure to enable **ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES** to **Yes** for every build***
+
 #### 0.5.2.4. Invoking Lenddo Onboarding
 On your App.js, call RNOnboardingSdkWrapperIOS's ```showAuthorizeWithFormData``` to launch Lenddo Onboarding
 
