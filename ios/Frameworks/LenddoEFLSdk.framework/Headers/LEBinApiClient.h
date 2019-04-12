@@ -26,6 +26,11 @@
                                 withToken:(NSString *) token
                               withSuccess:(void(^)(BOOL))aSuccess
                                andFailure:(void(^)(NSError*))aFailure;
+
+-(void) postCompleteWithUploadToken:(NSString *) aUploadToken
+                     withToken:(NSString *) token
+                   withSuccess:(void(^)(BOOL))aSuccess
+                    andFailure:(void(^)(NSError*))aFailure;
 @end
 
 

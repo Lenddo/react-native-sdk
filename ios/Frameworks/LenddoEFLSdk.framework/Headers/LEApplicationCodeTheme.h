@@ -12,7 +12,7 @@
 @interface LEApplicationCodeTheme : NSObject
 
 @property NSString *code;
-@property LEApplicationCodeThemeStyle *style;
+@property NSDictionary *style;
 
 -(id) initWithValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues;
 -(void) setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues;

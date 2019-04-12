@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "LEAuthorizeEventDelegate.h"
-#import "LECollectionEventDelegate.h"
-#import "LECollectionSetup.h"
 #import "LEOnboardingData.h"
 #import "LEWebViewController.h"
+// #import "LECollectionEventDelegate.h"
+// #import "LECollectionSetup.h"
 
 @interface LEController : NSObject
 
@@ -21,9 +21,11 @@
 
 +(LEWebViewController*) openAuthorize:(UIViewController *)controller withProviders:(NSArray *) providers withData:(LEOnboardingData *)formData withDelegate:(id <LEAuthorizeEventDelegate>)delegate;
 
+/*
 +(void) requestAccessForDataCollection;
 +(void) setupDataCollection:(LECollectionSetup *)setup;
 +(void) startDataCollection:(NSString *)applicationId  withDelegate:(id <LECollectionEventDelegate>)delegate;
+*/
 
 +(NSString *) getInstallationId;
 @end
